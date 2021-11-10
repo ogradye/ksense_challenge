@@ -1,0 +1,65 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	background: #f2f4f3;
+	display: flex;
+	justify-content: center;
+	font-family: 'Poppins', sans-serif;
+}
+
+.loading-skeleton-bar {
+	background: #d3d3d3;
+	height: 40px;
+	position: relative;
+	overflow: hidden;
+}
+
+.loading-skeleton-bar::before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: -150px;
+	top: 0;
+	height: 100%;
+	width: 150px;
+	background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
+	animation: skeleton 1s infinite;
+}
+
+@keyframes skeleton {
+	from {
+		left: -150px;
+	}
+	to {
+		left: 100%;
+	}
+}
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+	background: white;
+	box-shadow: 0px 2px 8px rgba(0,0,0,.25);
+	max-width: 1600px;
+}
+
+th{
+	text-align: left;
+	padding: .75rem;
+}
+
+td{
+	padding: .75rem;
+}
+
+.thead-row{
+	border-bottom: 1px solid #e0e0e0;
+}
+
+tr:not(.thead-row):nth-child(odd){
+	background: #efefef;
+}
+
