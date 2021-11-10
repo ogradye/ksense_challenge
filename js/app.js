@@ -22,9 +22,10 @@ const setLoading = (state) => {
 
 const generateUsers = (users) => {
 	const table = document.getElementById('userTable');
-
 	users.forEach(user => {
 		const tr = document.createElement('tr');
+		tr.classList.add('user');
+		tr.dataset.user = user.id;
 		const html = `<td>${user.name}</td>
 		<td>${user.username}</td>
 		<td>${user.email}</td>
@@ -36,7 +37,14 @@ const generateUsers = (users) => {
 
 		table.appendChild(tr);
 	});
-	
+
+	const userRows = document.querySelectorAll('.user');
+
+	userRows.forEach(user => {
+		user.addEventListener('click', () => {
+			window.location.href = `/posts.html?user=${user.dataset.user}`;
+		});
+	})
 }
 
 getUsers()
