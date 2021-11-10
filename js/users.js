@@ -4,16 +4,6 @@ const getUsers = async () => {
 	return users;
 }
 
-const setLoading = (state) => {
-	const loadingSkeleton = document.getElementById('loadingSkeleton');
-
-	if (state === false) {
-		setTimeout(() => {
-			loadingSkeleton.remove();
-		}, 2000);
-	}
-}
-
 const generateUser = (user) => {
 	const table = document.getElementById('userTable');
 	const tr = document.createElement('tr');
@@ -35,7 +25,13 @@ const generateUser = (user) => {
 		user.addEventListener('click', () => {
 			window.location.href = `/posts.html?user=${user.dataset.user}`;
 		});
-	})
+	});
+}
+
+const showError = (error) => {
+	const errorEl = document.getElementById('error');
+
+	error.innerHTML = `<td>${error}</td>`;
 }
 
 getUsers()
@@ -45,12 +41,7 @@ getUsers()
 		});
 	})
 	.catch(error => {
-		console.log(error)
-	})
-	.finally(() => {
-		setLoading(false);
-	})
+		showError(error);
+	});
 
-const showError = (error) => {
 
-}
