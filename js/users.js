@@ -7,7 +7,6 @@ const getUsers = async () => {
 const generateUser = (user) => {
 	const table = document.getElementById('userTable');
 	const tr = document.createElement('tr');
-	const userRows = document.querySelectorAll('.user');
 	const userHtml = `<td>${user.name}</td>
 	<td>${user.username}</td>
 	<td>${user.email}</td>
@@ -21,6 +20,7 @@ const generateUser = (user) => {
 	tr.innerHTML = userHtml;
 	table.appendChild(tr);
 
+	const userRows = document.querySelectorAll('.user');
 	userRows.forEach(user => {
 		user.addEventListener('click', () => {
 			window.location.href = `/posts.html?user=${user.dataset.user}`;
