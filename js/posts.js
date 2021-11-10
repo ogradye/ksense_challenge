@@ -33,10 +33,19 @@ const generateUser = (user) => {
 	userContainer.innerHTML = userHtml;
 }
 
+const showError = (error) => {
+	const errorEl = document.getElementById('error');
+
+	error.innerHTML = error;
+}
+
 if(params.has('user')){
 	getPoster(params.get('user'))
 	.then(user => {
 		generateUser(user);
+	})
+	.catch(error => {
+		showError(error);
 	});
 
 	getUserPosts(params.get('user'))
@@ -44,5 +53,8 @@ if(params.has('user')){
 		posts.forEach(post => {
 			generatePost(post);
 		})
+	})
+	.catch(error => {
+		showError(error);
 	});
 }
