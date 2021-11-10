@@ -6,36 +6,10 @@ body{
 	margin: 0;
 	background: #f2f4f3;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	font-family: 'Poppins', sans-serif;
-}
-
-.loading-skeleton-bar {
-	background: #d3d3d3;
-	height: 40px;
-	position: relative;
-	overflow: hidden;
-}
-
-.loading-skeleton-bar::before {
-	content: '';
-	display: block;
-	position: absolute;
-	left: -150px;
-	top: 0;
-	height: 100%;
-	width: 150px;
-	background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
-	animation: skeleton 1s infinite;
-}
-
-@keyframes skeleton {
-	from {
-		left: -150px;
-	}
-	to {
-		left: 100%;
-	}
 }
 
 table{
@@ -44,6 +18,7 @@ table{
 	background: white;
 	box-shadow: 0px 2px 8px rgba(0,0,0,.25);
 	max-width: 1600px;
+	margin-top: 1rem;
 }
 
 th{
@@ -67,3 +42,18 @@ tr:not(.thead-row):nth-child(odd){
 	cursor: pointer;
 }
 
+.post{
+	background: white;
+	box-shadow: 0px 2px 8px rgba(0,0,0,.25);
+	margin-bottom: 1rem;
+	padding: .75rem;
+}
+
+#user{
+	padding: 1rem;
+	background: white;
+	margin: 1rem 0;
+	align-self: stretch;
+	text-align: center;
+	font-weight: bold;
+}
