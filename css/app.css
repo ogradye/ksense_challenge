@@ -63,3 +63,7 @@ tr:not(.thead-row):nth-child(odd){
 	background: #efefef;
 }
 
+.user{
+	cursor: pointer;
+}
+
